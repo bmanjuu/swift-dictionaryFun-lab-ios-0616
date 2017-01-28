@@ -10,19 +10,48 @@ class Icecream {
     
     // 1. Create the Dictionary here. The name of the variable should be favoriteFlavorsOfIceCream
     
-    
-    
+    var favoriteFlavorsOfIceCream = [
+        "Joe" : "Peanut Butter and Chocolate",
+        "Tim" : "Natural Vanilla",
+        "Sophie" : "Mexican Chocolate",
+        "Deniz" : "Natural Vanilla",
+        "Tom" : "Mexican Chocolate",
+        "Jim" : "Natural Vanilla",
+        "Susan" : "Cookies 'N' Cream"
+    ]
     
     
     // 2.
-    
-    
+    func names(forFlavor flavor: String) -> [String] {
+        
+        var names = [String]()
+        
+        for (name, iceCreamflavor) in favoriteFlavorsOfIceCream {
+            
+            if iceCreamflavor == flavor {
+                names.append(name)
+            }
+        }
+        return names
+    }
     
     
     
     
     // 3.
-    
+    func count(forFlavor flavor: String) -> Int {
+        
+        var count = 0
+        
+        for iceCreamflavor in favoriteFlavorsOfIceCream.values {
+            
+            if iceCreamflavor == flavor {
+                count+=1
+            }
+
+        }
+        return count
+    }
     
     
     
@@ -30,7 +59,14 @@ class Icecream {
     
     
     // 4.
-   
+    func flavor(forPerson person: String) -> String? {
+        
+        if favoriteFlavorsOfIceCream[person] != nil {
+            return favoriteFlavorsOfIceCream[person]
+        }
+        
+        return nil
+    }
     
     
     
@@ -38,7 +74,15 @@ class Icecream {
     
     
     // 5.
-   
+    func replace(flavor: String, forPerson person: String) -> Bool {
+        
+        if favoriteFlavorsOfIceCream[person] != nil {
+            favoriteFlavorsOfIceCream[person] = flavor
+            return true
+        }
+        
+        return false
+    }
     
     
     
@@ -46,7 +90,15 @@ class Icecream {
     
     
     // 6.
-    
+    func remove(person: String) -> Bool {
+        
+        if favoriteFlavorsOfIceCream[person] != nil {
+            favoriteFlavorsOfIceCream[person] = nil
+            return true
+        }
+        
+        return false
+    }
     
     
     
@@ -55,7 +107,9 @@ class Icecream {
     
     
     // 7.
-    
+    func numberOfAttendees() -> Int {
+        return favoriteFlavorsOfIceCream.count
+    }
     
     
     
@@ -64,7 +118,14 @@ class Icecream {
     
     
     // 8.
-    
+    func add(person: String, withFlavor flavor: String) -> Bool {
+        
+        if favoriteFlavorsOfIceCream[person] == nil {
+            favoriteFlavorsOfIceCream[person] = flavor
+        }
+        
+        return false
+    }
     
     
     
@@ -74,7 +135,22 @@ class Icecream {
     
     
     // 9.
-    
+    func attendeeList() {
+        
+        for (index, name) in favoriteFlavorsOfIceCream.keys.sorted().enumerated() {
+            
+            let personsFavoriteFlavor = "\(name) likes \(favoriteFlavorsOfIceCream[name]!)"
+            
+            if index == favoriteFlavorsOfIceCream.keys.count-1 {
+                print(personsFavoriteFlavor, terminator: "")
+            } else {
+                print(personsFavoriteFlavor)
+            }
+            
+        }
+        
+        
+    }
     
     
     

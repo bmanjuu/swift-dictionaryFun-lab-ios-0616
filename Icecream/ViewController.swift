@@ -17,10 +17,7 @@ class ViewController: UIViewController {
         
         
         // Test your functions here. You have access to the icecream constant created above.
-        
-        
-        
-        
+        icecream.attendeeList()
         
         
         
